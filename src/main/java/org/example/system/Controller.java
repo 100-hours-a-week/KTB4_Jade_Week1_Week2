@@ -2,7 +2,7 @@ package org.example.system;
 
 import org.example.game.ChamChamCham;
 import org.example.game.NumberGuess;
-import org.example.game.RockPaperSissors;
+import org.example.game.RockPaperScissors;
 import org.example.person.instructor.AiInstructor;
 import org.example.person.instructor.CloudInstructor;
 import org.example.person.instructor.FullStackInstructor;
@@ -28,13 +28,14 @@ public class Controller {
         return switch (inputTrack) {
             case "1" -> new CloudInstructor(new NumberGuess());
             case "2" -> new AiInstructor(new ChamChamCham());
-            case "3" -> new FullStackInstructor(new RockPaperSissors());
+            case "3" -> new FullStackInstructor(new RockPaperScissors());
             default -> throw new IllegalArgumentException(IoView.VALID_TRACK_INPUT);
         };
     }
 
     private boolean playRound() {
         Instructor instructor = createInstructor();
+        instructor.announceTask();
         boolean isPass = instructor.createTask();
 
         if (isPass) student.recordPass();
