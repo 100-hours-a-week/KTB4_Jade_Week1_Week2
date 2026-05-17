@@ -43,7 +43,10 @@ public class Controller {
             IoView.printPass();
             student.recordPass();
         }
-        else student.recordFail();
+        else {
+            IoView.printNonPass();
+            student.recordFail();
+        }
 
         return askRetry();
     }

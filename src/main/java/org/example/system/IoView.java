@@ -11,6 +11,9 @@ public class IoView {
     private static final String PRINT_PASS_VIEW = "================================\n" +
             " 수료증 획득 🎓\n" +
             "================================";
+    private static final String PRINT_NON_PASS_VIEW = "================================\n" +
+            " 수료 실패 😢\n" +
+            "================================";
     private static final String PRINT_ASK_RETRY_VIEW = "재도전하시겠습니까? (1.예 / 2.아니오): ";
 
     public static final String VALID_TRACK_INPUT = "1, 2, 3 중 하나를 입력하세요.";
@@ -44,6 +47,10 @@ public class IoView {
 
     public static void printPass() {
         System.out.println(PRINT_PASS_VIEW);
+    }
+
+    public static void printNonPass() {
+        System.out.println(PRINT_NON_PASS_VIEW);
     }
 
     public static String printAskRetry() {
