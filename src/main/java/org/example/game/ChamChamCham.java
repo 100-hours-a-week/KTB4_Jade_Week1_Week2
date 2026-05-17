@@ -1,6 +1,7 @@
 package org.example.game;
 
-public class NumberGuess implements TaskStrategy {
+public class ChamChamCham implements TaskStrategy {
+
     @Override
     public boolean run() {
         return false;
