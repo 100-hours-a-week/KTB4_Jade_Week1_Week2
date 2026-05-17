@@ -1,6 +1,6 @@
 package org.example.person.instructor;
 
-import org.example.game.TaskStrategy;
+import org.example.task.TaskStrategy;
 
 public class FullStackInstructor extends Instructor {
     private static final String NAME = "KEVIN";

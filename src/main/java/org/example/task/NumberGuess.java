@@ -1,16 +1,18 @@
-package org.example.game;
+package org.example.task;
 
 import org.example.system.IoView;
 import org.example.system.RandomNumberUtil;
 
-public class ChamChamCham implements TaskStrategy {
+public class NumberGuess implements TaskStrategy {
     private static final int MAX_ATTEMPTS = 3;
-    private static final String VALID_DIRECTION_INPUT = "1, 2, 3 중 하나를 입력하세요.";
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 10;
+    private static final String VALID_NUMBER_INPUT = "1~10 사이의 숫자를 입력하세요.";
     private String answer;
 
     @Override
     public boolean run() {
-        answer = String.valueOf(RandomNumberUtil.generate(1, 3));
+        answer = String.valueOf(RandomNumberUtil.generate(MIN_NUMBER, MAX_NUMBER));
         for (int i = 1; i <= MAX_ATTEMPTS; i++) {
             if (tryTask(i)) return true;
         }
@@ -24,8 +26,9 @@ public class ChamChamCham implements TaskStrategy {
 
     @Override
     public boolean evaluate(String input) {
-        if (!input.equals("1") && !input.equals("2") && !input.equals("3")) {
-            throw new IllegalArgumentException(VALID_DIRECTION_INPUT);
+        int number = Integer.parseInt(input);
+        if (number < MIN_NUMBER || number > MAX_NUMBER) {
+            throw new IllegalArgumentException(VALID_NUMBER_INPUT);
         }
         if (input.equals(answer)) {
             IoView.printCorrect();
@@ -38,8 +41,8 @@ public class ChamChamCham implements TaskStrategy {
     @Override
     public String toString() {
         return "================================\n" +
-                " " + MAX_ATTEMPTS + "번 안에 공격을 예측하면 통과!\n" +
-                " (1.왼쪽 / 2.정면 / 3.오른쪽)\n" +
+                " 강사가 " + MIN_NUMBER + "~" + MAX_NUMBER + " 사이의 숫자를 선택했습니다.\n" +
+                " " + MAX_ATTEMPTS + "번 안에 맞춰보세요!\n" +
                 "================================";
     }
 }

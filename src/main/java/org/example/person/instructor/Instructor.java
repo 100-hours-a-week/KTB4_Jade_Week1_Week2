@@ -1,6 +1,6 @@
 package org.example.person.instructor;
 
-import org.example.game.TaskStrategy;
+import org.example.task.TaskStrategy;
 import org.example.person.Person;
 
 public abstract class Instructor extends Person {

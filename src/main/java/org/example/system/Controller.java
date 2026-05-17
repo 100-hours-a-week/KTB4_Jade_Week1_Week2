@@ -1,8 +1,8 @@
 package org.example.system;
 
-import org.example.game.ChamChamCham;
-import org.example.game.NumberGuess;
-import org.example.game.RockPaperScissors;
+import org.example.task.ChamChamCham;
+import org.example.task.NumberGuess;
+import org.example.task.RockPaperScissors;
 import org.example.person.instructor.AiInstructor;
 import org.example.person.instructor.CloudInstructor;
 import org.example.person.instructor.FullStackInstructor;
