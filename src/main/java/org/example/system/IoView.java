@@ -15,6 +15,8 @@ public class IoView {
 
     public static final String VALID_TRACK_INPUT = "1, 2, 3 중 하나를 입력하세요.";
     public static final String VALID_RETRY_INPUT = "1 또는 2를 입력하세요.";
+    public static final String CORRECT_TASK_ANSWER = "정답입니다!!";
+    public static final String WRONG_TASK_ANSWER = "땡! 틀렸습니다!!";
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
@@ -32,6 +34,14 @@ public class IoView {
         return SCANNER.nextLine();
     }
 
+    public static void printCorrect() {
+        System.out.printf(CORRECT_TASK_ANSWER);
+    }
+
+    public static void printWrong() {
+        System.out.printf(WRONG_TASK_ANSWER);
+    }
+
     public static void printPass() {
         System.out.println(PRINT_PASS_VIEW);
     }
@@ -39,5 +49,13 @@ public class IoView {
     public static String printAskRetry() {
         System.out.print(PRINT_ASK_RETRY_VIEW);
         return SCANNER.nextLine();
+    }
+
+    public static String getInput() {
+        return SCANNER.nextLine();
+    }
+
+    public static void printAttemptsCount(int attempts) {
+        System.out.print("[" + attempts + "번째 시도] 입력하세요: ");
     }
 }
