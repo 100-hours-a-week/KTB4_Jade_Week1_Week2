@@ -3,7 +3,11 @@ package org.example.person;
 public abstract class Person {
     protected String name;
 
-    protected void introduce() {
+    public Person(String name) {
+        this.name = name;
+    }
 
+    public String getName() {
+        return name;
     }
 }
