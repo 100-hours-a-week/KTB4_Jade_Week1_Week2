@@ -21,6 +21,7 @@ public class Controller {
         while (isRetry) {
             isRetry = playRound();
         }
+        student.printFinalResult();
     }
 
     private Instructor createInstructor() {
