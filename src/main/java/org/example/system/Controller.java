@@ -38,17 +38,12 @@ public class Controller {
         instructor.announceTask();
         boolean isPass = instructor.createTask();
 
-        if (isPass) student.recordPass();
+        if (isPass) {
+            IoView.printPass();
+            student.recordPass();
+        }
         else student.recordFail();
 
-        return handleRetryByResult(isPass);
-    }
-
-    private boolean handleRetryByResult(boolean isPass) {
-        if(isPass) {
-            IoView.printPass();
-            return false;
-        }
         return askRetry();
     }
 
