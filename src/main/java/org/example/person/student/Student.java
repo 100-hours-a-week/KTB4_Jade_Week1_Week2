@@ -27,7 +27,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "================================\n" +
+        return "\n================================\n" +
                 " " + getName() + "님의 학습 기록\n" +
                 " 총 도전 횟수: " + attempts + "번\n" +
                 " 통과: " + passCount + "번 / 실패: " + failCount + "번\n" +
