@@ -1,5 +1,8 @@
 package org.example.system;
 
+import org.example.game.ChamChamCham;
+import org.example.game.NumberGuess;
+import org.example.game.RockPaperSissors;
 import org.example.person.instructor.AiInstructor;
 import org.example.person.instructor.CloudInstructor;
 import org.example.person.instructor.FullStackInstructor;
@@ -7,10 +10,10 @@ import org.example.person.instructor.Instructor;
 import org.example.person.student.Student;
 
 public class Controller {
-    private final String userName;
+    private final Student student;
 
     public Controller(String userName) {
-        this.userName = userName;
+        this.student = new Student(userName);
     }
 
     public void run() {
@@ -20,24 +23,27 @@ public class Controller {
         }
     }
 
-    public Instructor createInstructor() {
+    private Instructor createInstructor() {
         String inputTrack = IoView.selectTrack();
         return switch (inputTrack) {
-            case "1" -> new CloudInstructor();
-            case "2" -> new AiInstructor();
-            case "3" -> new FullStackInstructor();
+            case "1" -> new CloudInstructor(new NumberGuess());
+            case "2" -> new AiInstructor(new ChamChamCham());
+            case "3" -> new FullStackInstructor(new RockPaperSissors());
             default -> throw new IllegalArgumentException(IoView.VALID_TRACK_INPUT);
         };
     }
 
-    public boolean playRound() {
-        Student student = new Student(userName);
+    private boolean playRound() {
         Instructor instructor = createInstructor();
-        boolean isPass = instructor.task();
+        boolean isPass = instructor.createTask();
+
+        if (isPass) student.recordPass();
+        else student.recordFail();
+
         return handleRetryByResult(isPass);
     }
 
-    public boolean handleRetryByResult(boolean isPass) {
+    private boolean handleRetryByResult(boolean isPass) {
         if(isPass) {
             IoView.printPass();
             return false;
@@ -45,7 +51,7 @@ public class Controller {
         return askRetry();
     }
 
-    public boolean askRetry() {
+    private boolean askRetry() {
         String inputRetry = IoView.printAskRetry();
         return switch (inputRetry) {
             case "1" -> true;
