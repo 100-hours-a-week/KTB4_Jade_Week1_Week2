@@ -11,12 +11,12 @@ public class IoView {
     private static final String PRINT_PASS_VIEW = "================================\n" +
             " 수료증 획득 🎓\n" +
             "================================";
-    private static final String PRINT_ASK_RETRY_VIEW = "포기하지 마십시오. 재도전하시겠습니까? (1.예 / 2.아니오): ";
+    private static final String PRINT_ASK_RETRY_VIEW = "재도전하시겠습니까? (1.예 / 2.아니오): ";
 
     public static final String VALID_TRACK_INPUT = "1, 2, 3 중 하나를 입력하세요.";
     public static final String VALID_RETRY_INPUT = "1 또는 2를 입력하세요.";
     public static final String CORRECT_TASK_ANSWER = "정답입니다!!";
-    public static final String WRONG_TASK_ANSWER = "땡! 틀렸습니다!!";
+    public static final String WRONG_TASK_ANSWER = "땡! 틀렸습니다!!\n";
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
@@ -35,11 +35,11 @@ public class IoView {
     }
 
     public static void printCorrect() {
-        System.out.printf(CORRECT_TASK_ANSWER);
+        System.out.println(CORRECT_TASK_ANSWER);
     }
 
     public static void printWrong() {
-        System.out.printf(WRONG_TASK_ANSWER);
+        System.out.println(WRONG_TASK_ANSWER);
     }
 
     public static void printPass() {

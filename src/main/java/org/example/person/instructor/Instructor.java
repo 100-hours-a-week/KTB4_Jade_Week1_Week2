@@ -12,7 +12,7 @@ public abstract class Instructor extends Person {
     }
 
     public void announceTask() {
-        System.out.println(getName() + "가 과제를 제출합니다!");
+        System.out.println("\n"+getName() + "가 과제를 제출합니다!");
         taskStrategy.printDescription();
     }
 
