@@ -5,9 +5,10 @@ import org.example.system.IoView;
 
 public class Main {
     public static void main(String[] args) {
-       String userName = IoView.inputName();
-       Controller controller = new Controller(userName);
+        IoView.printInit();
+        String userName = IoView.inputName();
+        Controller controller = new Controller(userName);
 
-       controller.run();
+        controller.run();
     }
 }
