@@ -11,14 +11,19 @@ public class Student extends Person {
         super(name);
     }
 
-    public void recordPass() {
+    private void recordPass() {
         attempts++;
         passCount++;
     }
 
-    public void recordFail() {
+    private void recordFail() {
         attempts++;
         failCount++;
+    }
+
+    public void recordScore(boolean isPass) {
+        if(isPass) recordPass();
+        else recordFail();
     }
 
     public void printFinalResult() {

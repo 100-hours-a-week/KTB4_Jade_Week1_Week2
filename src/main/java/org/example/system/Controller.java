@@ -38,15 +38,7 @@ public class Controller {
         Instructor instructor = createInstructor();
         instructor.announceTask();
         boolean isPass = instructor.createTask();
-
-        if (isPass) {
-            IoView.printPass();
-            student.recordPass();
-        }
-        else {
-            IoView.printNonPass();
-            student.recordFail();
-        }
+        student.recordScore(isPass);
 
         return askRetry();
     }
