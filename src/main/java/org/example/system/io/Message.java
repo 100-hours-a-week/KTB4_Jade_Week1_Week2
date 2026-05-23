@@ -15,8 +15,7 @@ public final class Message {
             " 수료 실패 😢\n" +
             "================================";
     public static final String ASK_RETRY_VIEW = "\n재도전하시겠습니까? (1.예 / 2.아니오): ";
-    public static final String VALID_TRACK_INPUT = "1, 2, 3 중 하나를 입력하세요.";
-    public static final String VALID_RETRY_INPUT = "1 또는 2를 입력하세요.";
+    public static final String VALID_RETRY_INPUT = "잘못된 재시도 입력입니다. 다시 입력하세요.";
     public static final String CORRECT_TASK_ANSWER = "정답입니다!!";
     public static final String WRONG_TASK_ANSWER = "땡! 틀렸습니다!!\n";
     public static final String VALID_NUMERIC_INPUT = "숫자를 입력하세요.";

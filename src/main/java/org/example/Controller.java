@@ -46,8 +46,17 @@ public class Controller {
     }
 
     private boolean askRetry() {
-        String inputRetry = IoController.askRetry();
-        return switch (inputRetry) {
+        while (true) {
+            try {
+                return parseRetry(IoController.askRetry());
+            } catch (IllegalArgumentException e) {
+                OutputView.printError(e.getMessage());
+            }
+        }
+    }
+
+    private boolean parseRetry(String input) {
+        return switch (input) {
             case "1" -> true;
             case "2" -> false;
             default -> throw new IllegalArgumentException(Message.VALID_RETRY_INPUT);

@@ -24,8 +24,14 @@ public abstract class TaskTemplate implements TaskStrategy {
     }
 
     private boolean tryTask(int attempt) {
-        OutputView.printAttemptsCount(attempt);
-        return evaluate(InputView.getInput());
+        while (true) {
+            try {
+                OutputView.printAttemptsCount(attempt);
+                return evaluate(InputView.getInput());
+            } catch (IllegalArgumentException e) {
+                OutputView.printError(e.getMessage());
+            }
+        }
     }
 
     public final boolean evaluate(String input) {
