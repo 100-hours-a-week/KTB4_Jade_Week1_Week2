@@ -1,6 +1,7 @@
 package org.example.task;
 
-import org.example.system.IoView;
+import org.example.system.InputView;
+import org.example.system.OutputView;
 import org.example.system.RandomNumberUtil;
 
 public abstract class TaskTemplate implements TaskStrategy {
@@ -17,6 +18,11 @@ public abstract class TaskTemplate implements TaskStrategy {
         return false;
     }
 
+    private boolean tryTask(int attempt) {
+        OutputView.printAttemptsCount(attempt);
+        return evaluate(InputView.getInput());
+    }
+
     private int makeAnswer(int minRange, int maxRange) {
         return RandomNumberUtil.generate(minRange, maxRange);
     }
@@ -24,15 +30,14 @@ public abstract class TaskTemplate implements TaskStrategy {
     public final boolean evaluate(String input) {
         validate(input);
         if (Integer.parseInt(input) == answer) {
-            IoView.printCorrect();
+            OutputView.printCorrect();
             return true;
         }
-        IoView.printWrong() ;
+        OutputView.printWrong() ;
         return false;
     }
 
     protected abstract void validate(String input);
     protected abstract int getMinRange();
     protected abstract int getMaxRange();
-    protected abstract boolean tryTask(int attempts);
 }

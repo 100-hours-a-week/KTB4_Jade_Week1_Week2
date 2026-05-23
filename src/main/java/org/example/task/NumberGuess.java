@@ -1,17 +1,9 @@
 package org.example.task;
 
-import org.example.system.IoView;
-
 public class NumberGuess extends TaskTemplate {
     private static final int MIN_ARRANGE = 1;
     private static final int MAX_ARRANGE = 10;
     private static final String VALID_NUMBER_INPUT = "1~10 사이의 숫자를 입력하세요.";
-
-    @Override
-    protected boolean tryTask(int attempt) {
-        IoView.printAttemptsCount(attempt);
-        return evaluate(IoView.getInput());
-    }
 
     @Override
     protected void validate(String input) {
