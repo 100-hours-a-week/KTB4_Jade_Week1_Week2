@@ -9,12 +9,12 @@ public class IoController {
 
     public static String inputName() {
         OutputView.printNameView();
-        return InputView.inputName();
+        return InputView.getInput();
     }
 
     public static String selectTrack() {
         OutputView.printTrackView();
-        return InputView.selectTrack();
+        return InputView.getInput();
     }
 
     public static String askRetry() {
