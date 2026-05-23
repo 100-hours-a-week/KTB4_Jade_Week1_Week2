@@ -1,6 +1,7 @@
 package org.example.task;
 
 import org.example.system.io.InputView;
+import org.example.system.io.Message;
 import org.example.system.io.OutputView;
 import org.example.system.util.RandomNumberUtil;
 
@@ -18,17 +19,18 @@ public abstract class TaskTemplate implements TaskStrategy {
         return false;
     }
 
+    private int makeAnswer(int minRange, int maxRange) {
+        return RandomNumberUtil.generate(minRange, maxRange);
+    }
+
     private boolean tryTask(int attempt) {
         OutputView.printAttemptsCount(attempt);
         return evaluate(InputView.getInput());
     }
 
-    private int makeAnswer(int minRange, int maxRange) {
-        return RandomNumberUtil.generate(minRange, maxRange);
-    }
-
     public final boolean evaluate(String input) {
-        validate(input);
+        int number = validateNumeric(input);  // 변환
+        validate(number);
         if (Integer.parseInt(input) == answer) {
             OutputView.printCorrect();
             return true;
@@ -37,7 +39,16 @@ public abstract class TaskTemplate implements TaskStrategy {
         return false;
     }
 
-    protected abstract void validate(String input);
+    private int validateNumeric(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Message.VALID_NUMERIC_INPUT);
+        }
+    }
+
+
+    protected abstract void validate(int number);
     protected abstract int getMinRange();
     protected abstract int getMaxRange();
 }

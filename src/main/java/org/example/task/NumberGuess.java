@@ -6,8 +6,7 @@ public class NumberGuess extends TaskTemplate {
     private static final String VALID_NUMBER_INPUT = "1~10 사이의 숫자를 입력하세요.";
 
     @Override
-    protected void validate(String input) {
-        int number = Integer.parseInt(input);
+    protected void validate(int number) {
         if (number < MIN_ARRANGE || number > MAX_ARRANGE) {
             throw new IllegalArgumentException(VALID_NUMBER_INPUT);
         }

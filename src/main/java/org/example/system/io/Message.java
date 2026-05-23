@@ -19,4 +19,5 @@ public final class Message {
     public static final String VALID_RETRY_INPUT = "1 또는 2를 입력하세요.";
     public static final String CORRECT_TASK_ANSWER = "정답입니다!!";
     public static final String WRONG_TASK_ANSWER = "땡! 틀렸습니다!!\n";
+    public static final String VALID_NUMERIC_INPUT = "숫자를 입력하세요.";
 }

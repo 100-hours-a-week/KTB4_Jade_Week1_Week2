@@ -6,8 +6,8 @@ public class ChamChamCham extends TaskTemplate {
     private static final String VALID_DIRECTION_INPUT = "1, 2, 3 중 하나를 입력하세요.";
 
     @Override
-    protected void validate(String input) {
-        if (!input.equals("1") && !input.equals("2") && !input.equals("3")) {
+    protected void validate(int number) {
+        if (number < MIN_ARRANGE || number > MAX_ARRANGE) {
             throw new IllegalArgumentException(VALID_DIRECTION_INPUT);
         }
     }
