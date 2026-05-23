@@ -25,12 +25,12 @@ public class Controller {
     }
 
     private Instructor createInstructor() {
-        String inputTrack = IoView.selectTrack();
+        String inputTrack = IoController.selectTrack();
         return switch (inputTrack) {
             case "1" -> new CloudInstructor(new NumberGuess());
             case "2" -> new AiInstructor(new ChamChamCham());
             case "3" -> new FullStackInstructor(new RockPaperScissors());
-            default -> throw new IllegalArgumentException(IoView.VALID_TRACK_INPUT);
+            default -> throw new IllegalArgumentException(Message.VALID_TRACK_INPUT);
         };
     }
 
@@ -44,11 +44,11 @@ public class Controller {
     }
 
     private boolean askRetry() {
-        String inputRetry = IoView.printAskRetry();
+        String inputRetry = IoController.askRetry();
         return switch (inputRetry) {
             case "1" -> true;
             case "2" -> false;
-            default -> throw new IllegalArgumentException(IoView.VALID_RETRY_INPUT);
+            default -> throw new IllegalArgumentException(Message.VALID_RETRY_INPUT);
         };
     }
 }
