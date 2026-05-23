@@ -31,6 +31,10 @@ public class OutputView {
         System.out.println(Message.NON_PASS_VIEW);
     }
 
+    public static void printError(String message) {
+        System.out.println(message);
+    }
+
     public static void printAskRetry() {
         System.out.print(Message.ASK_RETRY_VIEW);
     }

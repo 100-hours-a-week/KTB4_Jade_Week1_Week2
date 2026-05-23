@@ -22,27 +22,4 @@ public class IoController {
         return InputView.getInput();
     }
 
-    public static void printCorrect() {
-        OutputView.printCorrect();
-    }
-
-    public static void printWrong() {
-        OutputView.printWrong();
-    }
-
-    public static void printPass() {
-        OutputView.printPass();
-    }
-
-    public static void printNonPass() {
-        OutputView.printNonPass();
-    }
-
-    public static void printAttemptsCount(int attempts) {
-        OutputView.printAttemptsCount(attempts);
-    }
-
-    public static String getInput() {
-        return InputView.getInput();
-    }
 }

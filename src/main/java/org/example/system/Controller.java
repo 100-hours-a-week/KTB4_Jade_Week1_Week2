@@ -2,14 +2,10 @@ package org.example.system;
 
 import org.example.system.io.IoController;
 import org.example.system.io.Message;
-import org.example.task.ChamChamCham;
-import org.example.task.NumberGuess;
-import org.example.task.RockPaperScissors;
-import org.example.person.instructor.AiInstructor;
-import org.example.person.instructor.CloudInstructor;
-import org.example.person.instructor.FullStackInstructor;
+import org.example.system.io.OutputView;
 import org.example.person.instructor.Instructor;
 import org.example.person.student.Student;
+import org.example.track.TrackType;
 
 public class Controller {
     private final Student student;
@@ -27,13 +23,14 @@ public class Controller {
     }
 
     private Instructor createInstructor() {
-        String inputTrack = IoController.selectTrack();
-        return switch (inputTrack) {
-            case "1" -> new CloudInstructor(new NumberGuess());
-            case "2" -> new AiInstructor(new ChamChamCham());
-            case "3" -> new FullStackInstructor(new RockPaperScissors());
-            default -> throw new IllegalArgumentException(Message.VALID_TRACK_INPUT);
-        };
+        while (true) {
+            try {
+                String inputTrack = IoController.selectTrack();
+                return TrackType.from(inputTrack).createInstructor();
+            } catch (IllegalArgumentException e) {
+                OutputView.printError(e.getMessage());
+            }
+        }
     }
 
     private boolean playRound() {
@@ -41,6 +38,9 @@ public class Controller {
         instructor.announceTask();
         boolean isPass = instructor.createTask();
         student.recordScore(isPass);
+
+        if (isPass) OutputView.printPass();
+        else OutputView.printNonPass();
 
         return askRetry();
     }

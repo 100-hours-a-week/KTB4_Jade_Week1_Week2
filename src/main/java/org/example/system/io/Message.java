@@ -20,4 +20,5 @@ public final class Message {
     public static final String CORRECT_TASK_ANSWER = "정답입니다!!";
     public static final String WRONG_TASK_ANSWER = "땡! 틀렸습니다!!\n";
     public static final String VALID_NUMERIC_INPUT = "숫자를 입력하세요.";
+    public static final String VALID_TRACK_TYPE = "잘못된 트랙을 입력하셨습니다. 다시 입력하세요.";
 }
