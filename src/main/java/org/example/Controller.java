@@ -1,4 +1,4 @@
-package org.example.system;
+package org.example;
 
 import org.example.system.io.IoController;
 import org.example.system.io.Message;
