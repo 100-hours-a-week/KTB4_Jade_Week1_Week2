@@ -1,8 +1,8 @@
 package org.example.task;
 
-import org.example.system.InputView;
-import org.example.system.OutputView;
-import org.example.system.RandomNumberUtil;
+import org.example.system.io.InputView;
+import org.example.system.io.OutputView;
+import org.example.system.util.RandomNumberUtil;
 
 public abstract class TaskTemplate implements TaskStrategy {
     protected static final int MIN_ATTEMPTS = 1;

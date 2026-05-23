@@ -1,4 +1,4 @@
-package org.example.system;
+package org.example.system.io;
 
 public class IoController {
     private IoController() {}

@@ -1,5 +1,7 @@
 package org.example.system;
 
+import org.example.system.io.IoController;
+import org.example.system.io.Message;
 import org.example.task.ChamChamCham;
 import org.example.task.NumberGuess;
 import org.example.task.RockPaperScissors;
