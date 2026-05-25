@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.system.io.IoController;
+import org.example.system.io.InputOutputView;
 import org.example.system.io.Message;
 import org.example.system.io.OutputView;
 import org.example.person.instructor.Instructor;
@@ -25,7 +25,7 @@ public class Controller {
     private Instructor createInstructor() {
         while (true) {
             try {
-                String inputTrack = IoController.selectTrack();
+                String inputTrack = InputOutputView.selectTrack();
                 return TrackType.from(inputTrack).createInstructor();
             } catch (IllegalArgumentException e) {
                 OutputView.printError(e.getMessage());
@@ -48,7 +48,7 @@ public class Controller {
     private boolean askRetry() {
         while (true) {
             try {
-                return parseRetry(IoController.askRetry());
+                return parseRetry(InputOutputView.askRetry());
             } catch (IllegalArgumentException e) {
                 OutputView.printError(e.getMessage());
             }
