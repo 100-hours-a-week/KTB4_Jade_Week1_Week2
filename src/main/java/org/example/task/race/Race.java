@@ -11,7 +11,6 @@ import java.util.List;
 public class Race implements TaskStrategy {
     private List<Runner> runners;
     private RaceResult raceResult;
-    private static final Long GOAL_TIME = 10L;
     private static final int MIN_ARRANGE = 1;
     private static final int MAX_ARRANGE = 3;
     private static final String VALID_PREDICTION_INPUT = "1, 2, 3 중 하나를 입력하세요.";
