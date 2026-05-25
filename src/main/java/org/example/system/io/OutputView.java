@@ -42,4 +42,8 @@ public class OutputView {
     public static void printAttemptsCount(int attempts) {
         System.out.print("[" + attempts + "번째 시도] 입력하세요: ");
     }
+
+    public static void printPredictView() {
+        System.out.println(Message.PREDICT_VIEW);
+    }
 }
