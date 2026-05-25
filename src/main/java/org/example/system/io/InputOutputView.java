@@ -1,7 +1,7 @@
 package org.example.system.io;
 
-public class IoController {
-    private IoController() {}
+public class InputOutputView {
+    private InputOutputView() {}
 
     public static void printInit() {
         OutputView.printInit();
@@ -19,6 +19,11 @@ public class IoController {
 
     public static String askRetry() {
         OutputView.printAskRetry();
+        return InputView.getInput();
+    }
+
+    public static String inputRacePredict() {
+        OutputView.printPredictView();
         return InputView.getInput();
     }
 

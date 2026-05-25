@@ -1,9 +1,10 @@
-package org.example.task;
+package org.example.task.guess;
 
 import org.example.system.io.InputView;
-import org.example.system.io.Message;
 import org.example.system.io.OutputView;
 import org.example.system.util.RandomNumberUtil;
+import org.example.system.util.ValidateUtil;
+import org.example.task.TaskStrategy;
 
 public abstract class TaskTemplate implements TaskStrategy {
     protected static final int MIN_ATTEMPTS = 1;
@@ -35,24 +36,15 @@ public abstract class TaskTemplate implements TaskStrategy {
     }
 
     public final boolean evaluate(String input) {
-        int number = validateNumeric(input);  // 변환
+        int number = ValidateUtil.validateNumeric(input);
         validate(number);
         if (Integer.parseInt(input) == answer) {
             OutputView.printCorrect();
             return true;
         }
-        OutputView.printWrong() ;
+        OutputView.printWrong();
         return false;
     }
-
-    private int validateNumeric(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Message.VALID_NUMERIC_INPUT);
-        }
-    }
-
 
     protected abstract void validate(int number);
     protected abstract int getMinRange();

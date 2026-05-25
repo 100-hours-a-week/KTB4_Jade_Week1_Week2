@@ -1,10 +1,10 @@
 package org.example;
 
-import org.example.system.io.IoController;
+import org.example.system.io.InputOutputView;
 
 public class Main {
     public static void main(String[] args) {
-        IoController.printInit();
-        new Controller(IoController.inputName()).run();
+        InputOutputView.printInit();
+        new Controller(InputOutputView.inputName()).run();
     }
 }
