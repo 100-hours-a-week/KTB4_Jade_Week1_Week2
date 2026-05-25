@@ -1,4 +1,6 @@
-package org.example.task;
+package org.example.task.guess;
+
+import org.example.task.TaskTemplate;
 
 public class NumberGuess extends TaskTemplate {
     private static final int MIN_ARRANGE = 1;
