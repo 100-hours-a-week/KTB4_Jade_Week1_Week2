@@ -1,7 +1,5 @@
 package org.example.task.guess;
 
-import org.example.task.TaskTemplate;
-
 public class RockPaperScissors extends TaskTemplate {
     private static final int MIN_ARRANGE = 1;
     private static final int MAX_ARRANGE = 3;
