@@ -35,13 +35,13 @@ public abstract class TaskTemplate implements TaskStrategy {
     }
 
     public final boolean evaluate(String input) {
-        int number = validateNumeric(input);  // 변환
+        int number = validateNumeric(input);
         validate(number);
         if (Integer.parseInt(input) == answer) {
             OutputView.printCorrect();
             return true;
         }
-        OutputView.printWrong() ;
+        OutputView.printWrong();
         return false;
     }
 
