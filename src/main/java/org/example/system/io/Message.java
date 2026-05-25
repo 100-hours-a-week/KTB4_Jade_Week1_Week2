@@ -22,5 +22,5 @@ public final class Message {
     public static final String VALID_TRACK_TYPE = "잘못된 트랙을 입력하셨습니다. 다시 입력하세요.";
     public static final String PREDICT_VIEW = "예측 우승 트랙을 입력하세요. : ";
     public static final String NON_RACE_RESULT = "레이스 결과가 없습니다. 서버팀에 문의하세요.";
-    public static final String START_RACING = "경주 시작!!";
+기    public static final String START_RACING = "<<경주 시작!! : 매 초 레이싱 결과가 출력됩니다.>>";
 }

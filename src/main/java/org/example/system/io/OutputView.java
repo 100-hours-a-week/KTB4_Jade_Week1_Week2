@@ -48,6 +48,6 @@ public class OutputView {
     }
 
     public static void printStartRacing() {
-        System.out.println("\n"+Message.START_RACING);
+        System.out.println(Message.START_RACING);
     }
 }
