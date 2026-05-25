@@ -48,4 +48,8 @@ public enum TrackType {
                 .map(t -> t.name)
                 .toList();
     }
+
+    public String getName() {
+        return name;
+    }
 }
