@@ -44,6 +44,10 @@ public class OutputView {
     }
 
     public static void printPredictView() {
-        System.out.println(Message.PREDICT_VIEW);
+        System.out.print(Message.PREDICT_VIEW);
+    }
+
+    public static void printStartRacing() {
+        System.out.println("\n"+Message.START_RACING);
     }
 }
