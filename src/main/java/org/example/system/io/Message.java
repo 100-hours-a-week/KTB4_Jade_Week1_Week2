@@ -20,4 +20,6 @@ public final class Message {
     public static final String WRONG_TASK_ANSWER = "땡! 틀렸습니다!!\n";
     public static final String VALID_NUMERIC_INPUT = "숫자를 입력하세요.";
     public static final String VALID_TRACK_TYPE = "잘못된 트랙을 입력하셨습니다. 다시 입력하세요.";
+    public static final String PREDICT_VIEW = "우승 트랙을 예측하세요. (1.Cloud / 2.AI / 3.FullStack): ";
+    public static final String NON_RACE_RESULT = "레이스 결과가 없습니다. 서버팀에 문의하세요.";
 }
