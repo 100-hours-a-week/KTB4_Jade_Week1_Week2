@@ -66,6 +66,6 @@ public class Runner implements Runnable {
     }
 
     private long getElapsedSeconds(long startTime) {
-        return (System.currentTimeMillis() - startTime) / 1000;
+        return (System.currentTimeMillis() - startTime) / ONE_SECOND_MILLIS;
     }
 }
