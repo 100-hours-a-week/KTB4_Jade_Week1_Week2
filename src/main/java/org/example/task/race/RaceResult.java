@@ -5,6 +5,7 @@ import org.example.system.io.OutputView;
 import org.example.track.TrackType;
 
 import java.util.ArrayDeque;
+import java.util.Optional;
 import java.util.Queue;
 
 public class RaceResult {
@@ -18,10 +19,10 @@ public class RaceResult {
 
     public boolean matchWinner(String predict) {
         String predictedTrack = TrackType.from(predict).getName();
-        RaceInfoDto winner = rankingQueue.peek();
-        if (winner == null) {
-            throw new IllegalStateException(Message.NON_RACE_RESULT);
-        }
+
+        RaceInfoDto winner = Optional.ofNullable(rankingQueue.peek())
+                .orElseThrow(() -> new IllegalStateException(Message.NON_RACE_RESULT));
+
         return winner.trackName().equals(predictedTrack);
     }
 
