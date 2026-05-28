@@ -9,6 +9,8 @@ import java.util.Queue;
 
 public class RaceResult {
     private final Queue<RaceInfoDto> rankingQueue;
+    private static final int INITIAL_RANK = 0;
+    private static final int INITIAL_PREVIOUS_ELAPSED_TIME = -1;
 
     public RaceResult() {
         this.rankingQueue = new ArrayDeque<>();
@@ -28,8 +30,8 @@ public class RaceResult {
     }
 
     public void printRanking() {
-        int rank = 0;
-        int prevElapsedTime = -1;
+        int rank = INITIAL_RANK;
+        int prevElapsedTime = INITIAL_PREVIOUS_ELAPSED_TIME;
         OutputView.printRaceResult();
         for (RaceInfoDto dto : rankingQueue) {
             if(prevElapsedTime < dto.lapsedTime()) {
