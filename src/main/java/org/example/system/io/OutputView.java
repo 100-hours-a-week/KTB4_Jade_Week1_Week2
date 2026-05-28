@@ -1,5 +1,7 @@
 package org.example.system.io;
 
+import org.example.task.race.RaceInfoDto;
+
 public class OutputView {
     private OutputView() {}
 
@@ -50,4 +52,14 @@ public class OutputView {
     public static void printStartRacing() {
         System.out.println(Message.START_RACING);
     }
+
+    public static void printRaceResult() {
+        System.out.println(Message.RESULT_RACING);
+    }
+
+    public static void printRanking(int rank, RaceInfoDto dto) {
+        System.out.println(rank + "등: " + dto);
+    }
+
+
 }

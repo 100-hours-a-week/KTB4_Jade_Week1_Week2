@@ -1,6 +1,7 @@
 package org.example.task.race;
 
 import org.example.system.io.Message;
+import org.example.system.io.OutputView;
 import org.example.track.TrackType;
 
 import java.util.ArrayDeque;
@@ -29,13 +30,13 @@ public class RaceResult {
     public void printRanking() {
         int rank = 0;
         int prevElapsedTime = -1;
-        System.out.println("\n <<결과 공개>>");
+        OutputView.printRaceResult();
         for (RaceInfoDto dto : rankingQueue) {
             if(prevElapsedTime < dto.lapsedTime()) {
                 rank++;
                 prevElapsedTime = dto.lapsedTime();
             }
-            System.out.println(rank + "등: " + dto);
+            OutputView.printRanking(rank, dto);
         }
     }
 
